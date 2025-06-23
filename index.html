@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ciel Store - Diamond ML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #ffd700;
+    }
+    .product {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 0;
+      color: #00ffe1;
+    }
+    .product p {
+      margin: 5px 0;
+    }
+    form {
+      margin-top: 20px;
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    .btn {
+      background: #ffcc00;
+      color: black;
+      padding: 12px;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ciel Store</h1>
+
+    <!-- Daftar Harga -->
+    <div class="product">
+      <h3>86 Diamond</h3>
+      <p>Rp 16.000</p>
+    </div>
+    <div class="product">
+      <h3>172 Diamond</h3>
+      <p>Rp 32.000</p>
+    </div>
+    <div class="product">
+      <h3>257 Diamond</h3>
+      <p>Rp 48.000</p>
+    </div>
+
+    <!-- Form Order -->
+    <form onsubmit="kirimWa(); return false;">
+      <label>Nama:</label>
+      <input type="text" id="nama" required>
+      
+      <label>ID + Server ML:</label>
+      <input type="text" id="id" placeholder="12345678(1234)" required>
+      
+      <label>Pilih Diamond:</label>
+      <select id="diamond">
+        <option value="86 Diamond">86 Diamond - Rp16.000</option>
+        <option value="172 Diamond">172 Diamond - Rp32.000</option>
+        <option value="257 Diamond">257 Diamond - Rp48.000</option>
+      </select>
+      
+      <a id="pesanWa" class="btn" href="#">Pesan Sekarang</a>
+    </form>
+  </div>
+
+  <script>
+    function kirimWa() {
+      var nama = document.getElementById("nama").value;
+      var id = document.getElementById("id").value;
+      var diamond = document.getElementById("diamond").value;
+
+      var linkWa = "https://wa.me/62882022788373?text=" +
+        encodeURIComponent("Halo, saya ingin order diamond:\n") +
+        "*Nama:* " + nama + "\n" +
+        "*ID + Server:* " + id + "\n" +
+        "*Diamond:* " + diamond;
+
+      document.getElementById("pesanWa").href = linkWa;
+      document.getElementById("pesanWa").click();
+    }
+  </script>
+</body>
+</html>
